@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    let a = ProcessInfo.processInfo.environment["base_url"] ?? ""
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
-            Text(a)
         }
         .padding()
     }
