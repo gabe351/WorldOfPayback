@@ -55,11 +55,11 @@ class TransactionsApiDataSourceImplementation: TransactionsApiDataSource {
     }
 
     private func decodeWithRandomlyFail() -> AnyPublisher<TransactionResponse, NetworkError> {
-//       Bool.random()
-//        ? Fail(error: NetworkError.connectionError("From a random error"))
-//            .receive(on: RunLoop.main)
-//            .eraseToAnyPublisher()
-        return Bundle.main.decodeable(fileName: "PBTransactions.json")
+       Bool.random()
+        ? Fail(error: NetworkError.connectionError("From a random error"))
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+        : Bundle.main.decodeable(fileName: "PBTransactions.json")
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

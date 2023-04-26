@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0412C36529F9C65B0080EE38 /* TransactionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C36429F9C65B0080EE38 /* TransactionsViewModelTests.swift */; };
+		0412C36829F9C6CF0080EE38 /* TransactionsApiDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C36729F9C6CF0080EE38 /* TransactionsApiDataSourceMock.swift */; };
+		0412C37029F9D8070080EE38 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412C36F29F9D8070080EE38 /* XCTestCaseExtension.swift */; };
 		049E665329F95ADA00D4D93C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E665229F95ADA00D4D93C /* StringExtension.swift */; };
 		04DEDF4B29F87687009DFED2 /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDF4A29F87687009DFED2 /* PBTransactions.json */; };
 		04DEDF5129F87CC0009DFED2 /* TransactionsApiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEDF5029F87CC0009DFED2 /* TransactionsApiDataSource.swift */; };
@@ -18,7 +21,6 @@
 		04FD136729F8758C00022FE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD136629F8758C00022FE5 /* ContentView.swift */; };
 		04FD136929F8758D00022FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04FD136829F8758D00022FE5 /* Assets.xcassets */; };
 		04FD136C29F8758D00022FE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04FD136B29F8758D00022FE5 /* Preview Assets.xcassets */; };
-		04FD137629F8758D00022FE5 /* WorldOfPAYBACKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD137529F8758D00022FE5 /* WorldOfPAYBACKTests.swift */; };
 		04FD138029F8758D00022FE5 /* WorldOfPAYBACKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD137F29F8758D00022FE5 /* WorldOfPAYBACKUITests.swift */; };
 		04FD138229F8758D00022FE5 /* WorldOfPAYBACKUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD138129F8758D00022FE5 /* WorldOfPAYBACKUITestsLaunchTests.swift */; };
 		04FE1B8929F91FC300637239 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE1B8829F91FC300637239 /* NetworkError.swift */; };
@@ -42,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0412C36429F9C65B0080EE38 /* TransactionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModelTests.swift; sourceTree = "<group>"; };
+		0412C36729F9C6CF0080EE38 /* TransactionsApiDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsApiDataSourceMock.swift; sourceTree = "<group>"; };
+		0412C36F29F9D8070080EE38 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
 		0483052529F93F2100BC3356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		049E665229F95ADA00D4D93C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		04DEDF4A29F87687009DFED2 /* PBTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
@@ -56,7 +61,6 @@
 		04FD136829F8758D00022FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04FD136B29F8758D00022FE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04FD137129F8758D00022FE5 /* WorldOfPAYBACKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldOfPAYBACKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04FD137529F8758D00022FE5 /* WorldOfPAYBACKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPAYBACKTests.swift; sourceTree = "<group>"; };
 		04FD137B29F8758D00022FE5 /* WorldOfPAYBACKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldOfPAYBACKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FD137F29F8758D00022FE5 /* WorldOfPAYBACKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPAYBACKUITests.swift; sourceTree = "<group>"; };
 		04FD138129F8758D00022FE5 /* WorldOfPAYBACKUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPAYBACKUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -88,6 +92,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0412C36629F9C6C10080EE38 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				0412C36729F9C6CF0080EE38 /* TransactionsApiDataSourceMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		0412C36D29F9D3140080EE38 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		0412C36E29F9D7F80080EE38 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0412C36F29F9D8070080EE38 /* XCTestCaseExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		04DEDF4929F8766C009DFED2 /* MockedData */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +220,9 @@
 		04FD137429F8758D00022FE5 /* WorldOfPAYBACKTests */ = {
 			isa = PBXGroup;
 			children = (
-				04FD137529F8758D00022FE5 /* WorldOfPAYBACKTests.swift */,
+				0412C36E29F9D7F80080EE38 /* Extensions */,
+				0412C36629F9C6C10080EE38 /* Mock */,
+				0412C36429F9C65B0080EE38 /* TransactionsViewModelTests.swift */,
 			);
 			path = WorldOfPAYBACKTests;
 			sourceTree = "<group>";
@@ -227,6 +256,7 @@
 		04FE1B8629F91F4200637239 /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				0412C36D29F9D3140080EE38 /* UseCase */,
 				04DEDF6329F88C25009DFED2 /* ViewModel */,
 			);
 			path = Transaction;
@@ -388,7 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04FD137629F8758D00022FE5 /* WorldOfPAYBACKTests.swift in Sources */,
+				0412C36529F9C65B0080EE38 /* TransactionsViewModelTests.swift in Sources */,
+				0412C36829F9C6CF0080EE38 /* TransactionsApiDataSourceMock.swift in Sources */,
+				0412C37029F9D8070080EE38 /* XCTestCaseExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

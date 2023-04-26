@@ -38,7 +38,7 @@ class TransactionsViewModel: ObservableObject {
                 self?.isLoading = false
             }, receiveValue: {  [weak self] (response: TransactionResponse) in
                 self?.errorMessage = nil
-                
+
                 self?.transactionAmoundSum = response.items
                     .compactMap { $0.transactionDetail.value.amount }
                     .reduce(Float.zero, +)
