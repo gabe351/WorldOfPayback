@@ -24,7 +24,13 @@ struct ContentView: View {
                 Text("Error reason: " + errorMessage)
             }
 
-            Text("Hello, world!")
+            if viewModel.isLoading {
+                Text("Loading")
+            } else {
+                Text("Loaded")
+            }
+
+
 
             ForEach(viewModel.transactionList, id: \.alias.reference) { item in
                 Text(item.partnerDisplayName)
