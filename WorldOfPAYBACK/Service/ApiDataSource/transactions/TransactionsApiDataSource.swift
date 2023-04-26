@@ -26,11 +26,11 @@ class TransactionsApiDataSourceImplementation: TransactionsApiDataSource {
     }
 
     func fetchAll() -> AnyPublisher<TransactionResponse, NetworkError> {
-        guard let baseUrl = ProcessInfo.processInfo.environment["base_url"],
+        guard let infoPlistPath = Bundle.main.url(forResource: "Info", withExtension: "plist"),
+              let infoPlistData = NSDictionary(contentsOf: infoPlistPath),
+              let baseUrl = infoPlistData["SERVER_URL"] as? String,
               let url = URL(string: baseUrl + Endpoints.listAll.path) else {
-            let c = ProcessInfo.processInfo.environment["base_url"] ?? "null"
-
-            return Fail(error: NetworkError.connectionError("Fail to load URL" + c))
+            return Fail(error: NetworkError.connectionError("Fail to load URL"))
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         }
