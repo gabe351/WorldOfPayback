@@ -7,9 +7,24 @@
 
 import Foundation
 
-struct Transaction: Codable {
+struct Transaction: Decodable {
     let partnerDisplayName: String
     let alias: TransactionAlias
     let category: Int
     let transactionDetail: TransactionDetail
+}
+
+struct TransactionAlias: Decodable {
+    let reference: String
+}
+
+struct TransactionDetail: Decodable {
+    let description: String?
+    let bookingDate: String
+    let value: TransactionValue
+}
+
+struct TransactionValue: Decodable {
+    let amount: Float
+    let currency: String
 }
