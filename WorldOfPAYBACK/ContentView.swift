@@ -27,10 +27,8 @@ struct ContentView: View {
             if viewModel.isLoading {
                 Text("Loading")
             } else {
-                Text("Loaded")
+                Text("Loaded - Total amount: \(String(format: "%.2f", viewModel.transactionAmoundSum))")
             }
-
-
 
             ForEach(viewModel.transactionList, id: \.alias.reference) { item in
                 Text(item.partnerDisplayName)

@@ -16,6 +16,7 @@ class TransactionsViewModel: ObservableObject {
     @Published var transactionList: [Transaction] = []
     @Published var errorMessage: String? = nil
     @Published var isLoading = true
+    @Published var transactionAmoundSum: Float = Float.zero
 
     init(apiDataSource: TransactionsApiDataSource = TransactionsApiDataSourceImplementation()) {
         self.apiDataSource = apiDataSource
@@ -36,8 +37,20 @@ class TransactionsViewModel: ObservableObject {
 
                 self?.isLoading = false
             }, receiveValue: {  [weak self] (response: TransactionResponse) in
-                self?.transactionList = response.items
                 self?.errorMessage = nil
+                
+                self?.transactionAmoundSum = response.items
+                    .compactMap { $0.transactionDetail.value.amount }
+                    .reduce(Float.zero, +)
+
+                self?.transactionList = response.items
+                    .sorted {
+                        $0.transactionDetail.bookingDate.toDate()
+                            .compare(
+                                $1.transactionDetail.bookingDate.toDate()
+                            )
+                        == .orderedDescending
+                    }
             })
             .store(in: &disposables)
     }

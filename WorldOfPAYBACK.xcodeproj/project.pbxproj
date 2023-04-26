@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049E665329F95ADA00D4D93C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E665229F95ADA00D4D93C /* StringExtension.swift */; };
 		04DEDF4B29F87687009DFED2 /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDF4A29F87687009DFED2 /* PBTransactions.json */; };
 		04DEDF5129F87CC0009DFED2 /* TransactionsApiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEDF5029F87CC0009DFED2 /* TransactionsApiDataSource.swift */; };
 		04DEDF5D29F880CC009DFED2 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEDF5C29F880CC009DFED2 /* Transaction.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		0483052529F93F2100BC3356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		049E665229F95ADA00D4D93C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		04DEDF4A29F87687009DFED2 /* PBTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
 		04DEDF5029F87CC0009DFED2 /* TransactionsApiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsApiDataSource.swift; sourceTree = "<group>"; };
 		04DEDF5C29F880CC009DFED2 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				04DEDF6129F884F7009DFED2 /* BundleExtension.swift */,
+				049E665229F95ADA00D4D93C /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				04DEDF6529F88C33009DFED2 /* TransactionsViewModel.swift in Sources */,
 				04DEDF5F29F882B1009DFED2 /* TransactionResponse.swift in Sources */,
 				04DEDF6229F884F7009DFED2 /* BundleExtension.swift in Sources */,
+				049E665329F95ADA00D4D93C /* StringExtension.swift in Sources */,
 				04FD136729F8758C00022FE5 /* ContentView.swift in Sources */,
 				04DEDF5129F87CC0009DFED2 /* TransactionsApiDataSource.swift in Sources */,
 				04FD136529F8758C00022FE5 /* WorldOfPAYBACKApp.swift in Sources */,
