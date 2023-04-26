@@ -8,5 +8,15 @@
 import Foundation
 
 enum NetworkError: Error {
-    case connectionError
+    case generic(Error)
+    case connectionError(String)
+
+    var message: String {
+        switch self {
+        case .generic(let error):
+            return error.localizedDescription
+        case .connectionError(let value):
+            return value
+        }
+    }
 }

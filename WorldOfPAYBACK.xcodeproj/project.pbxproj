@@ -170,7 +170,6 @@
 				04DEDF5429F87F8F009DFED2 /* Model */,
 				04FE1B8729F91F5600637239 /* Service */,
 				04DEDF6029F884EC009DFED2 /* Extensions */,
-				04FD136429F8758C00022FE5 /* WorldOfPAYBACKApp.swift */,
 				04FD136629F8758C00022FE5 /* ContentView.swift */,
 				04FD136829F8758D00022FE5 /* Assets.xcassets */,
 				04FD136A29F8758D00022FE5 /* Preview Content */,
@@ -206,6 +205,7 @@
 		04FE1B8429F91F2E00637239 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				04FD136429F8758C00022FE5 /* WorldOfPAYBACKApp.swift */,
 				04FE1B8529F91F3700637239 /* Modules */,
 			);
 			path = Application;

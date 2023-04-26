@@ -20,6 +20,10 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
+            if let errorMessage = viewModel.errorMessage {
+                Text("Error reason: " + errorMessage)
+            }
+
             Text("Hello, world!")
 
             ForEach(viewModel.transactionList, id: \.alias.reference) { item in

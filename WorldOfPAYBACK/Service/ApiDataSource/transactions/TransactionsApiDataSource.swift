@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol TransactionsApiDataSource: AnyObject {
-    func fetchAll() -> AnyPublisher<TransactionResponse, Error>?
+    func fetchAll() -> AnyPublisher<TransactionResponse, NetworkError>
 }
 
 class TransactionsApiDataSourceImplementation: TransactionsApiDataSource {
@@ -25,13 +25,14 @@ class TransactionsApiDataSourceImplementation: TransactionsApiDataSource {
         }
     }
 
-
-    func fetchAll() -> AnyPublisher<TransactionResponse, Error>? {
+    func fetchAll() -> AnyPublisher<TransactionResponse, NetworkError> {
         guard let baseUrl = ProcessInfo.processInfo.environment["base_url"],
               let url = URL(string: baseUrl + Endpoints.listAll.path) else {
-            // Return an publisher with error message
-            print("Fail to load URL")
-            return nil
+            let c = ProcessInfo.processInfo.environment["base_url"] ?? "null"
+
+            return Fail(error: NetworkError.connectionError("Fail to load URL" + c))
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
         }
 
         // TODO: Replace bundle decoder with URLSession when API is ready
@@ -49,12 +50,13 @@ class TransactionsApiDataSourceImplementation: TransactionsApiDataSource {
 //                return element.data
 //            }
 //            .decode(type: TransactionResponse.self, decoder: JSONDecoder())
+//            .mapError { NetworkError.generic($0) }
 //            .eraseToAnyPublisher()
     }
 
-    private func decodeWithRandomlyFail() -> AnyPublisher<TransactionResponse, Error> {
+    private func decodeWithRandomlyFail() -> AnyPublisher<TransactionResponse, NetworkError> {
        Bool.random()
-        ? Fail(error: NetworkError.connectionError)
+        ? Fail(error: NetworkError.connectionError("From a random error"))
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
         : Bundle.main.decodeable(fileName: "PBTransactions.json")

@@ -24,12 +24,10 @@ extension Bundle{
             .eraseToAnyPublisher()
     }
 
-    func decodeable<T: Decodable>(fileName: String) -> AnyPublisher<T, Error> {
+    func decodeable<T: Decodable>(fileName: String) -> AnyPublisher<T, NetworkError> {
         readFile(file: fileName)
             .decode(type: T.self, decoder: JSONDecoder())
-            .mapError { error in
-                return error
-            }
+            .mapError { NetworkError.generic($0) }
             .eraseToAnyPublisher()
     }
 }
