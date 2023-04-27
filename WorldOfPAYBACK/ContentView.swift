@@ -16,7 +16,7 @@ struct ContentView: View {
 //            if networkMonitor.isConnected {
 //                HomeView()
 //            } else {
-                NoNetworkView()
+//                NoNetworkView()
 //            }
         }
     }

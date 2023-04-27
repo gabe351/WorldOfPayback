@@ -21,7 +21,7 @@ struct TransactionDetailView: View {
                 Text("Partner name: " + transaction.partnerDisplayName)
                 Text("Description: " + (transaction.transactionDetail.description ?? "None description provided"))
             }
-            .navigationBarTitle("Transactions", displayMode: .inline)
+            .navigationBarTitle("Transaction detail", displayMode: .large)
         }
     }
 }

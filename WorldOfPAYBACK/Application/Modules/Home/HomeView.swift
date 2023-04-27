@@ -26,37 +26,47 @@ struct HomeView: View {
                 if viewModel.isLoading {
                     Text("Loading")
                 } else {
-                    VStack {
-                        if let errorMessage = viewModel.errorMessage {
-                            VStack {
-                                Text("We are not able to display transactions right now, try again later")
-                                Text("Reason: " + errorMessage)
+                    transactionListComponent
+                        .navigationBarTitle("Transactions", displayMode: .inline)
+                }
+            }
 
-                                Button("Try again") {
-                                    viewModel.fetchAll()
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .controlSize(.large)
-                            }
-                        } else {
-                            filterComponent
-                            if let filteredSum = viewModel.transactionAmoundSum {
-                                Text("Total amount: \(String(format: "%.2f", filteredSum)) PBP")
-                            }
-
-                            transactionListComponent
-                        }
-                    }
-                    .padding()
-                    .navigationBarTitle("Transactions", displayMode: .inline)
+            if let errorMessage = viewModel.errorMessage {
+                AlertView(
+                    iconSystemName: "exclamationmark.octagon.fill",
+                    message: "We are not able to display transactions right now, try again later \n\n Reason: \(errorMessage)",
+                    actionButtonTitle: "Try again"
+                ) {
+                    viewModel.fetchAll()
                 }
             }
 
             if networkMonitor.status == .disconnected {
-                NoNetworkView()
+                AlertView(
+                    iconSystemName: "wifi.slash",
+                    message: "Network connection seems to be offline.\nPlease check your connectivity"
+                )
             }
         }
         .onAppear(perform: viewModel.fetchAll)
+    }
+
+    private var transactionListComponent: some View {
+        VStack(alignment: .center) {
+            filterComponent
+
+            if let filteredSum = viewModel.transactionAmoundSum {
+                Text("Total amount: \(String(format: "%.2f", filteredSum)) PBP")
+            }
+
+            List {
+                ForEach(viewModel.transactionList, id: \.alias.reference) { element in
+                    NavigationLink(destination: TransactionDetailView(transaction: element)) {
+                        cell(transaction: element)
+                    }
+                }
+            }
+        }
     }
 
     private var filterComponent: some View {
@@ -82,16 +92,6 @@ struct HomeView: View {
         }
     }
 
-    private var transactionListComponent: some View {
-        List {
-            ForEach(viewModel.transactionList, id: \.alias.reference) { element in
-                NavigationLink(destination: TransactionDetailView(transaction: element)) {
-                    cell(transaction: element)
-                }
-            }
-        }
-    }
-
     private func cell(transaction: Transaction) -> some View {
         VStack(alignment: .leading) {
             Text(transaction.partnerDisplayName)
@@ -103,5 +103,11 @@ struct HomeView: View {
             Text("\(String(format: "%.2f", transaction.transactionDetail.value.amount)) \(transaction.transactionDetail.value.currency)")
                 .foregroundColor(.secondary)
         }
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }
