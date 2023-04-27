@@ -18,7 +18,7 @@ class TransactionsViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var transactionAmoundSum: Float = Float.zero
 
-    init(apiDataSource: TransactionsApiDataSource = TransactionsApiDataSourceImplementation()) {
+    init(apiDataSource: TransactionsApiDataSource = TransactionsApiDataSourceImplementation.shared) {
         self.apiDataSource = apiDataSource
     }
 
@@ -26,7 +26,7 @@ class TransactionsViewModel: ObservableObject {
         isLoading = true
         apiDataSource
             .fetchAll()
-            .delay(for: 2, scheduler: RunLoop.main)
+//            .delay(for: 2, scheduler: RunLoop.main)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:

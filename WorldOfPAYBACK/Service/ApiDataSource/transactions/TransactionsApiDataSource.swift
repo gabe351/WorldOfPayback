@@ -14,6 +14,10 @@ protocol TransactionsApiDataSource: AnyObject {
 
 class TransactionsApiDataSourceImplementation: TransactionsApiDataSource {
 
+    static let shared = TransactionsApiDataSourceImplementation()
+
+    private init() {}
+
     private enum Endpoints {
         case listAll
 

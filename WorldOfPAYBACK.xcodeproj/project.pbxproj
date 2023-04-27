@@ -24,6 +24,9 @@
 		04FD138029F8758D00022FE5 /* WorldOfPAYBACKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD137F29F8758D00022FE5 /* WorldOfPAYBACKUITests.swift */; };
 		04FD138229F8758D00022FE5 /* WorldOfPAYBACKUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD138129F8758D00022FE5 /* WorldOfPAYBACKUITestsLaunchTests.swift */; };
 		04FE1B8929F91FC300637239 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE1B8829F91FC300637239 /* NetworkError.swift */; };
+		04FE2A5A29FA5C2500BB8CA1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE2A5929FA5C2500BB8CA1 /* NetworkMonitor.swift */; };
+		04FE2A5C29FA5E4400BB8CA1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE2A5B29FA5E4400BB8CA1 /* HomeView.swift */; };
+		04FE2A5F29FA600E00BB8CA1 /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE2A5E29FA600E00BB8CA1 /* NoNetworkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		04FD137F29F8758D00022FE5 /* WorldOfPAYBACKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPAYBACKUITests.swift; sourceTree = "<group>"; };
 		04FD138129F8758D00022FE5 /* WorldOfPAYBACKUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPAYBACKUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		04FE1B8829F91FC300637239 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		04FE2A5929FA5C2500BB8CA1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		04FE2A5B29FA5E4400BB8CA1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		04FE2A5E29FA600E00BB8CA1 /* NoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,13 +104,6 @@
 				0412C36729F9C6CF0080EE38 /* TransactionsApiDataSourceMock.swift */,
 			);
 			path = Mock;
-			sourceTree = "<group>";
-		};
-		0412C36D29F9D3140080EE38 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCase;
 			sourceTree = "<group>";
 		};
 		0412C36E29F9D7F80080EE38 /* Extensions */ = {
@@ -164,14 +163,6 @@
 				049E665229F95ADA00D4D93C /* StringExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		04DEDF6329F88C25009DFED2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				04DEDF6429F88C33009DFED2 /* TransactionsViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		04FD135829F8758C00022FE5 = {
@@ -248,18 +239,19 @@
 		04FE1B8529F91F3700637239 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				04FE1B8629F91F4200637239 /* Transaction */,
+				04FE2A5D29FA5FF900BB8CA1 /* NoNetworkView */,
+				04FE1B8629F91F4200637239 /* Home */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		04FE1B8629F91F4200637239 /* Transaction */ = {
+		04FE1B8629F91F4200637239 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0412C36D29F9D3140080EE38 /* UseCase */,
-				04DEDF6329F88C25009DFED2 /* ViewModel */,
+				04DEDF6429F88C33009DFED2 /* TransactionsViewModel.swift */,
+				04FE2A5B29FA5E4400BB8CA1 /* HomeView.swift */,
 			);
-			path = Transaction;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		04FE1B8729F91F5600637239 /* Service */ = {
@@ -267,8 +259,17 @@
 			children = (
 				04DEDF4929F8766C009DFED2 /* MockedData */,
 				04DEDF4E29F87C6F009DFED2 /* ApiDataSource */,
+				04FE2A5929FA5C2500BB8CA1 /* NetworkMonitor.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		04FE2A5D29FA5FF900BB8CA1 /* NoNetworkView */ = {
+			isa = PBXGroup;
+			children = (
+				04FE2A5E29FA600E00BB8CA1 /* NoNetworkView.swift */,
+			);
+			path = NoNetworkView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,8 +408,11 @@
 				04DEDF6529F88C33009DFED2 /* TransactionsViewModel.swift in Sources */,
 				04DEDF5F29F882B1009DFED2 /* TransactionResponse.swift in Sources */,
 				04DEDF6229F884F7009DFED2 /* BundleExtension.swift in Sources */,
+				04FE2A5C29FA5E4400BB8CA1 /* HomeView.swift in Sources */,
 				049E665329F95ADA00D4D93C /* StringExtension.swift in Sources */,
 				04FD136729F8758C00022FE5 /* ContentView.swift in Sources */,
+				04FE2A5F29FA600E00BB8CA1 /* NoNetworkView.swift in Sources */,
+				04FE2A5A29FA5C2500BB8CA1 /* NetworkMonitor.swift in Sources */,
 				04DEDF5129F87CC0009DFED2 /* TransactionsApiDataSource.swift in Sources */,
 				04FD136529F8758C00022FE5 /* WorldOfPAYBACKApp.swift in Sources */,
 			);

@@ -30,7 +30,7 @@ final class TransactionsViewModelTests: XCTestCase {
                 transactionDetail:
                     TransactionDetail(
                         description: "Punkte sammeln",
-                        bookingDate: "2022-04-24T10:59:05+0200",
+                        bookingDate: "2022-04-14T10:59:05+0200",
                         value: TransactionValue(amount: 500.0, currency: "PBP")
                     )
             ),
@@ -41,7 +41,7 @@ final class TransactionsViewModelTests: XCTestCase {
                 transactionDetail:
                     TransactionDetail(
                         description: "Punkte sammeln",
-                        bookingDate: "2022-06-23T10:59:05+0200",
+                        bookingDate: "2022-04-20T10:59:05+0200",
                         value: TransactionValue(amount: 1000.0, currency: "PBP")
                     )
             )

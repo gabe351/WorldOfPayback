@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct WorldOfPAYBACKApp: App {
+
+    @StateObject var networkMonitor = NetworkMonitor()
+
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: TransactionsViewModel())
+            HomeView()
+                .environmentObject(networkMonitor)
         }
     }
 }
