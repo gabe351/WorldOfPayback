@@ -9,11 +9,14 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    @EnvironmentObject var networkMonitor: NetworkMonitor
-    @ObservedObject var viewModel: TransactionsViewModel
 
-    init(viewModel: TransactionsViewModel = TransactionsViewModel()) {
+    @ObservedObject var viewModel: TransactionsViewModel
+    @ObservedObject var networkMonitor: NetworkMonitor
+
+    init(viewModel: TransactionsViewModel = TransactionsViewModel(),
+         networkMonitor: NetworkMonitor = NetworkMonitor()) {
         self.viewModel = viewModel
+        self.networkMonitor = networkMonitor
     }
 
     var body: some View {
@@ -29,7 +32,7 @@ struct HomeView: View {
                 if viewModel.isLoading {
                     Text("Loading")
                 } else {
-                    Text("Loaded - Total amount: \(String(format: "%.2f", viewModel.transactionAmoundSum))")
+                    Text("Total amount: \(String(format: "%.2f", viewModel.transactionAmoundSum))")
                 }
 
                 ForEach(viewModel.transactionList, id: \.alias.reference) { item in
@@ -44,5 +47,4 @@ struct HomeView: View {
         }
         .onAppear(perform: viewModel.fetchAll)
     }
-
 }
