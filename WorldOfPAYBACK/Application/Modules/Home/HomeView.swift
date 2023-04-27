@@ -25,23 +25,30 @@ struct HomeView: View {
             NavigationView {
                 if viewModel.isLoading {
                     Text("Loading")
-                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 2.0)))
                 } else {
-                    if let errorMessage = viewModel.errorMessage {
-                        Text("Error reason: " + errorMessage)
-                    } else {
-                        VStack {
-                            filterComponent
+                    VStack {
+                        if let errorMessage = viewModel.errorMessage {
+                            VStack {
+                                Text("We are not able to display transactions right now, try again later")
+                                Text("Reason: " + errorMessage)
 
+                                Button("Try again") {
+                                    viewModel.fetchAll()
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .controlSize(.large)
+                            }
+                        } else {
+                            filterComponent
                             if let filteredSum = viewModel.transactionAmoundSum {
                                 Text("Total amount: \(String(format: "%.2f", filteredSum)) PBP")
                             }
 
                             transactionListComponent
                         }
-                        .padding()
-                        .navigationBarTitle("List of transactions", displayMode: .inline)
                     }
+                    .padding()
+                    .navigationBarTitle("Transactions", displayMode: .inline)
                 }
             }
 
@@ -78,18 +85,23 @@ struct HomeView: View {
     private var transactionListComponent: some View {
         List {
             ForEach(viewModel.transactionList, id: \.alias.reference) { element in
-                VStack(alignment: .leading) {
-                    Text(element.partnerDisplayName)
-                        .font(.headline)
-                    Text(element.transactionDetail.bookingDate)
-                        .foregroundColor(.secondary)
-                    Text(element.transactionDetail.description ?? "No description provided")
-                        .foregroundColor(.secondary)
-                    Text("\(String(format: "%.2f", element.transactionDetail.value.amount)) \(element.transactionDetail.value.currency)")
-                        .foregroundColor(.secondary)
-
+                NavigationLink(destination: TransactionDetailView(transaction: element)) {
+                    cell(transaction: element)
                 }
             }
+        }
+    }
+
+    private func cell(transaction: Transaction) -> some View {
+        VStack(alignment: .leading) {
+            Text(transaction.partnerDisplayName)
+                .font(.headline)
+            Text(transaction.transactionDetail.bookingDate)
+                .foregroundColor(.secondary)
+            Text(transaction.transactionDetail.description ?? "No description provided")
+                .foregroundColor(.secondary)
+            Text("\(String(format: "%.2f", transaction.transactionDetail.value.amount)) \(transaction.transactionDetail.value.currency)")
+                .foregroundColor(.secondary)
         }
     }
 }
