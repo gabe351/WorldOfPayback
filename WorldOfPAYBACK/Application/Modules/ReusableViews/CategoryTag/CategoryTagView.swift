@@ -7,23 +7,54 @@
 
 import SwiftUI
 
+enum CategoryType: Int {
+    case one = 1
+    case two = 2
+    case three = 3
+    case undefined
+
+    public var categoryText: String {
+        switch self {
+        case .one:
+            return "1"
+        case .two:
+            return "2"
+        case .three:
+            return "3"
+        case .undefined:
+            return "?"
+        }
+    }
+
+    public var categoryColor: Color {
+        switch self {
+        case .one:
+            return .indigo
+        case .two:
+            return .green
+        case .three:
+            return .orange
+        case .undefined:
+            return .gray
+        }
+    }
+}
+
 struct CategoryTagView: View {
 
-    private let indicatorText: String
-    private let color: Color
+    private let category: CategoryType
 
-    init(indicatorText: String, color: Color) {
-        self.indicatorText = indicatorText
-        self.color = color
+    init(category: CategoryType) {
+        self.category = category
     }
 
     var body: some View {
-        Text(indicatorText)
-            .foregroundColor(color)
+        Text(category.categoryText)
+            .foregroundColor(category.categoryColor)
             .padding()
             .overlay(
                 Circle()
-                .stroke(color, lineWidth: 4)
+                    .stroke(category.categoryColor, lineWidth: 4)
                 .padding(2)
             )
     }
@@ -32,24 +63,17 @@ struct CategoryTagView: View {
 struct CategoryTagView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CategoryTagView(
-                indicatorText: "1",
-                color: .blue
-            )
+            CategoryTagView(category: .one)
             .previewDisplayName("Category 1")
 
-            CategoryTagView(
-                indicatorText: "2",
-                color: .green
-            )
+            CategoryTagView(category: .two)
             .previewDisplayName("Category 2")
 
-            CategoryTagView(
-                indicatorText: "3",
-                color: .orange
-            )
+            CategoryTagView(category: .three)
             .previewDisplayName("Category 3")
 
+            CategoryTagView(category: CategoryType(rawValue: 1231) ?? .undefined)
+            .previewDisplayName("Category Undefined")
         }
 
     }
