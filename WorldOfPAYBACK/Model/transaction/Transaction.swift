@@ -22,6 +22,12 @@ struct TransactionDetail: Decodable {
     let description: String?
     let bookingDate: String
     let value: TransactionValue
+
+    var formattedBookingDate: String {
+        bookingDate
+            .toDate()
+            .getFormattedDate(format: "dd.MM.yyyy")
+    }
 }
 
 struct TransactionValue: Decodable {

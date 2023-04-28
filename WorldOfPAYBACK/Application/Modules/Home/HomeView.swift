@@ -23,12 +23,8 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                if viewModel.isLoading {
-                    Text("Loading")
-                } else {
-                    transactionListComponent
-                        .navigationBarTitle("Transactions", displayMode: .inline)
-                }
+                transactionListComponent
+                    .navigationBarTitle("Transactions", displayMode: .inline)
             }
 
             if let errorMessage = viewModel.errorMessage {
@@ -39,6 +35,10 @@ struct HomeView: View {
                 ) {
                     viewModel.fetchAll()
                 }
+            }
+
+            if viewModel.isLoading {
+                LoadingView(loadingMessage: "Loading...")
             }
 
             if networkMonitor.status == .disconnected {
@@ -103,14 +103,28 @@ struct HomeView: View {
     }
 
     private func cell(transaction: Transaction) -> some View {
-        VStack(alignment: .leading) {
-            Text(transaction.partnerDisplayName)
-                .font(.headline)
-            Text(transaction.transactionDetail.bookingDate)
-                .foregroundColor(.secondary)
-            Text(transaction.transactionDetail.description ?? "No description provided")
-                .foregroundColor(.secondary)
-            Text("\(String(format: "%.2f", transaction.transactionDetail.value.amount)) \(transaction.transactionDetail.value.currency)")
+        VStack(alignment: .leading, spacing: 0) {
+            HStack {
+                Text(transaction.partnerDisplayName)
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .foregroundColor(.blue)
+                Spacer()
+                CategoryTagView(category: CategoryType(rawValue: transaction.category) ?? .undefined)
+            }
+
+            Text("\(transaction.transactionDetail.value.amount.stringValue) \(transaction.transactionDetail.value.currency)")
+                .font(.system(size: 12))
+                .fontWeight(.medium)
+                .padding(.bottom)
+
+            Text(transaction.transactionDetail.description ?? "None description provided")
+                .font(.system(size: 16))
+                .lineLimit(2)
+                .padding(.vertical)
+
+            Text("Booking date: " + transaction.transactionDetail.formattedBookingDate)
+                .font(.system(size: 12))
                 .foregroundColor(.secondary)
         }
         .padding()

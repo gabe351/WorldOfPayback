@@ -51,11 +51,11 @@ struct CategoryTagView: View {
     var body: some View {
         Text(category.categoryText)
             .foregroundColor(category.categoryColor)
-            .padding()
+            .font(.system(size: 10).bold())
+            .padding(8)
             .overlay(
                 Circle()
-                    .stroke(category.categoryColor, lineWidth: 4)
-                .padding(2)
+                    .stroke(category.categoryColor, lineWidth: 2)
             )
     }
 }

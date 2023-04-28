@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    func toDate(withFormat format: String = "yyyy-MM-dd'T'hh:mm:ssZ")-> Date {
+    func toDate(withFormat format: String = "yyyy-MM-dd'T'hh:mm:ssZ") -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.dateFormat = format

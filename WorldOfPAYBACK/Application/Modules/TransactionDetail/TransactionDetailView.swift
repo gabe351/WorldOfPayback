@@ -16,12 +16,57 @@ struct TransactionDetailView: View {
 
     var body: some View {
         NavigationView {
+            VStack(spacing: 16) {
+                Text(transaction.partnerDisplayName)
+                    .font(.largeTitle.bold())
+                    .foregroundColor(.blue)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
-            VStack {
-                Text("Partner name: " + transaction.partnerDisplayName)
-                Text("Description: " + (transaction.transactionDetail.description ?? "None description provided"))
+                Text("Description: " + (transaction.transactionDetail.description ?? "none description provided"))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Spacer()
             }
-            .navigationBarTitle("Transaction detail", displayMode: .large)
+            .padding(.leading)
+        }
+    }
+}
+
+struct TransactionDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            TransactionDetailView(transaction: Transaction(
+                partnerDisplayName: "Aral",
+                alias: TransactionAlias(reference: "1234"),
+                category: 2,
+                transactionDetail: TransactionDetail(
+                    description: "This is a short description",
+                    bookingDate: "10.11.1994",
+                    value: TransactionValue(amount: 125.0, currency: "PBP"))
+            ))
+            .previewDisplayName("Short description")
+
+            TransactionDetailView(transaction: Transaction(
+                partnerDisplayName: "Aral",
+                alias: TransactionAlias(reference: "1234"),
+                category: 2,
+                transactionDetail: TransactionDetail(
+                    description: "Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores não altera o pão duris.Quem num gosta di mim que vai caçá sua turmis!Copo furadis é disculpa de bebadis, arcu quam euismod magna.Manduma pindureta quium dia nois paga.",
+                    bookingDate: "10.11.1994",
+                    value: TransactionValue(amount: 125.0, currency: "PBP"))
+            ))
+            .previewDisplayName("Long description")
+
+            TransactionDetailView(transaction: Transaction(
+                partnerDisplayName: "Aral",
+                alias: TransactionAlias(reference: "1234"),
+                category: 2,
+                transactionDetail: TransactionDetail(
+                    description: nil,
+                    bookingDate: "10.11.1994",
+                    value: TransactionValue(amount: 125.0, currency: "PBP"))
+            ))
+            .previewDisplayName("Np description")
         }
     }
 }

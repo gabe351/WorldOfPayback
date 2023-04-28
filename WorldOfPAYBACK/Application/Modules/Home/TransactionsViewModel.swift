@@ -28,7 +28,7 @@ class TransactionsViewModel: ObservableObject {
         isLoading = true
         apiDataSource
             .fetchAll()
-//            .delay(for: 2, scheduler: RunLoop.main)
+            .delay(for: 2, scheduler: RunLoop.main)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
