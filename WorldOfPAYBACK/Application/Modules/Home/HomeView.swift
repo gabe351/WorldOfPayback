@@ -61,9 +61,19 @@ struct HomeView: View {
 
             List {
                 ForEach(viewModel.transactionList, id: \.alias.reference) { element in
-                    NavigationLink(destination: TransactionDetailView(transaction: element)) {
+                    ZStack {
                         cell(transaction: element)
+                        NavigationLink(destination: TransactionDetailView(transaction: element)) {
+                            EmptyView()
+                        }.opacity(0)
                     }
+                    .listRowBackground(
+                        RoundedRectangle(cornerRadius: 5)
+                            .background(.clear)
+                            .foregroundColor(.white)
+                            .padding(.vertical, 4)
+                    )
+                    .listRowSeparator(.hidden)
                 }
             }
         }
@@ -103,6 +113,7 @@ struct HomeView: View {
             Text("\(String(format: "%.2f", transaction.transactionDetail.value.amount)) \(transaction.transactionDetail.value.currency)")
                 .foregroundColor(.secondary)
         }
+        .padding()
     }
 }
 
