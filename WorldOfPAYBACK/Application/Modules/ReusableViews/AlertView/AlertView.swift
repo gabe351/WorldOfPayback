@@ -10,11 +10,11 @@ import SwiftUI
 struct AlertView: View {
     private let iconSystemName: String
     private let iconColor: Color
-    private let message: String
-    private let actionButtonTitle: String?
+    private let message: LocalizedStringKey
+    private let actionButtonTitle: LocalizedStringKey?
     private let action: (() -> Void)?
 
-    init(iconSystemName: String, iconColor: Color = .red, message: String, actionButtonTitle: String? = nil, action: (() -> Void)? = nil) {
+    init(iconSystemName: String, iconColor: Color = .red, message: LocalizedStringKey, actionButtonTitle: LocalizedStringKey? = nil, action: (() -> Void)? = nil) {
         self.iconSystemName = iconSystemName
         self.iconColor = iconColor
         self.message = message

@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  WorldOfPAYBACK
+
+  Created by Gabriel Rosa on 4/29/23.
+  
+*/
+
+"transactions.title" = "Transactions";
+
+"no.internet.message" = "Network connection seems to be offline.\nPlease check your connectivity";
+
+"error.message %@" = "We are not able to display transactions right now, try again later \n\n Reason: %@";
+"try.again" = "try again";
+
+"all.categories" = "All categories";
+"filter.category" = "Filter category";
+"category.message %lld" = "Category: %lld";
+"total.amount %@" = "Total amount: %@ PBP";
+
+"loading.message" = "Loading...";
+
+"empty.description.message" = "none description provided";
+
+"booking.date.text %@" = "Booking date: %@";
+
+"description.title" = "Description: ";

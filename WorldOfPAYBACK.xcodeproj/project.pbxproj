@@ -13,6 +13,7 @@
 		043BC9C229FBC0B700ADCF09 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BC9C129FBC0B700ADCF09 /* DateExtension.swift */; };
 		043BC9C429FBC6E900ADCF09 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BC9C329FBC6E900ADCF09 /* FloatExtension.swift */; };
 		043BC9C729FBCBE700ADCF09 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BC9C629FBCBE700ADCF09 /* LoadingView.swift */; };
+		0458EB1429FCF2F900C31D9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0458EB1629FCF2F900C31D9D /* Localizable.strings */; };
 		049E665329F95ADA00D4D93C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E665229F95ADA00D4D93C /* StringExtension.swift */; };
 		04D4479829FB0A4500BF12C4 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4479729FB0A4500BF12C4 /* ArrayExtension.swift */; };
 		04D4479B29FB2ADD00BF12C4 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4479A29FB2ADD00BF12C4 /* TransactionDetailView.swift */; };
@@ -58,6 +59,8 @@
 		043BC9C129FBC0B700ADCF09 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		043BC9C329FBC6E900ADCF09 /* FloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		043BC9C629FBCBE700ADCF09 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0458EB1529FCF2F900C31D9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0458EB1729FCF31300C31D9D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0483052529F93F2100BC3356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		049E665229F95ADA00D4D93C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		04D4479729FB0A4500BF12C4 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 				04DEDF6029F884EC009DFED2 /* Extensions */,
 				04FD136829F8758D00022FE5 /* Assets.xcassets */,
 				04FD136A29F8758D00022FE5 /* Preview Content */,
+				0458EB1629FCF2F900C31D9D /* Localizable.strings */,
 			);
 			path = WorldOfPAYBACK;
 			sourceTree = "<group>";
@@ -405,6 +409,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 04FD135829F8758C00022FE5;
 			productRefGroup = 04FD136229F8758C00022FE5 /* Products */;
@@ -424,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FD136C29F8758D00022FE5 /* Preview Assets.xcassets in Resources */,
+				0458EB1429FCF2F900C31D9D /* Localizable.strings in Resources */,
 				04DEDF4B29F87687009DFED2 /* PBTransactions.json in Resources */,
 				04FD136929F8758D00022FE5 /* Assets.xcassets in Resources */,
 			);
@@ -503,6 +509,18 @@
 			targetProxy = 04FD137C29F8758D00022FE5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0458EB1629FCF2F900C31D9D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0458EB1529FCF2F900C31D9D /* en */,
+				0458EB1729FCF31300C31D9D /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0483051F29F93C8C00BC3356 /* Dev */ = {

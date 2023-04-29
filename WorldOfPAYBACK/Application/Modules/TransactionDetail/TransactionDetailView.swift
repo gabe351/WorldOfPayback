@@ -16,13 +16,21 @@ struct TransactionDetailView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 16) {
+            VStack(spacing: 0) {
                 Text(transaction.partnerDisplayName)
                     .font(.largeTitle.bold())
                     .foregroundColor(.blue)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 16)
 
-                Text("Description: " + (transaction.transactionDetail.description ?? "none description provided"))
+                Text("description.title")
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 4)
+
+                Text((transaction.transactionDetail.description ?? "empty.description.message").localized)
+                    .font(.body)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 Spacer()

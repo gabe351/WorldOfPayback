@@ -9,9 +9,9 @@ import SwiftUI
 
 struct LoadingView: View {
 
-    private let loadingMessage: String
+    private let loadingMessage: LocalizedStringKey
 
-    init(loadingMessage: String) {
+    init(loadingMessage: LocalizedStringKey) {
         self.loadingMessage = loadingMessage
     }
 
