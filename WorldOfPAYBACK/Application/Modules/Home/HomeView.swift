@@ -12,7 +12,7 @@ struct HomeView: View {
 
     @ObservedObject var viewModel: TransactionsViewModel
     @ObservedObject var networkMonitor: NetworkMonitor
-    @State var filterTitle: LocalizedStringKey = "filter.category"
+    @State var filterTitle: LocalizedStringKey = AppStrings.filterCategory
 
     init(viewModel: TransactionsViewModel = TransactionsViewModel(),
          networkMonitor: NetworkMonitor = NetworkMonitor()) {
@@ -24,27 +24,27 @@ struct HomeView: View {
         ZStack {
             NavigationView {
                 transactionListComponent
-                    .navigationBarTitle("transactions.title", displayMode: .inline)
+                    .navigationBarTitle(AppStrings.transactionsTitle, displayMode: .inline)
             }
 
             if let errorMessage = viewModel.errorMessage {
                 AlertView(
                     iconSystemName: "exclamationmark.octagon.fill",
-                    message: "error.message \(errorMessage)",
-                    actionButtonTitle: "try.again"
+                    message: AppStrings.errorMessage(errorMessage),
+                    actionButtonTitle: AppStrings.tryAgain
                 ) {
                     viewModel.fetchAll()
                 }
             }
 
             if viewModel.isLoading {
-                LoadingView(loadingMessage: "loading.message")
+                LoadingView(loadingMessage: AppStrings.loading)
             }
 
             if networkMonitor.status == .disconnected {
                 AlertView(
                     iconSystemName: "wifi.slash",
-                    message: "no.internet.message"
+                    message: AppStrings.noInternetMessage
                 )
             }
         }
@@ -56,7 +56,7 @@ struct HomeView: View {
             filterComponent
 
             if let filteredSum = viewModel.transactionAmoundSum {
-                Text("total.amount \(filteredSum.stringValue)")
+                Text(AppStrings.totalAmount(filteredSum.stringValue))
             }
 
             List {
@@ -82,15 +82,15 @@ struct HomeView: View {
     private var filterComponent: some View {
         VStack {
             Menu {
-                Button(LocalizedStringKey("all.categories")) {
+                Button(AppStrings.allCategories) {
                     viewModel.showAll()
-                    filterTitle = "all.categories"
+                    filterTitle = AppStrings.allCategories
                 }
 
                 ForEach(viewModel.categoryList, id: \.self) { category in
                     Button("\(category)") {
                         viewModel.filterBy(category)
-                        filterTitle = "category.message \(category)"
+                        filterTitle = AppStrings.categoryMessage(category)
                     }
                 }
             } label: {
@@ -118,12 +118,12 @@ struct HomeView: View {
                 .fontWeight(.medium)
                 .padding(.bottom)
 
-            Text((transaction.transactionDetail.description ?? "empty.description.message").localized)
+            Text(transaction.transactionDetail.description?.localized ?? AppStrings.emptyDescription)
                 .font(.system(size: 16))
                 .lineLimit(2)
                 .padding(.vertical)
 
-            Text("booking.date.text \(transaction.transactionDetail.formattedBookingDate)")
+            Text(AppStrings.bookingDate(transaction.transactionDetail.formattedBookingDate))
                 .font(.system(size: 12))
                 .foregroundColor(.secondary)
         }

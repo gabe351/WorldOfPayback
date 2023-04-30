@@ -23,13 +23,13 @@ struct TransactionDetailView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 16)
 
-                Text("description.title")
+                Text(AppStrings.descriptionTitle)
                     .font(.title3)
                     .fontWeight(.medium)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 4)
 
-                Text((transaction.transactionDetail.description ?? "empty.description.message").localized)
+                Text(transaction.transactionDetail.description?.localized ?? AppStrings.emptyDescription)
                     .font(.body)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
